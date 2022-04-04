@@ -1,0 +1,38 @@
+#!/bin/bash
+
+#Functions:
+
+# burde tage to parametre: et for filepath, og et for antal af splits.
+function fileSplitter() {
+        echo "fileSplitter function"
+        #man split
+        #man wc
+	#vim ~/Downloads/Vossen.csv
+}
+
+# Skal greppe et eller flere rows, beholde header og vise som opdelt i columns.
+function rowGrepper() {
+        echo "rowGrepper function"
+}
+
+# Bare en idé for nu, at kunne give parametre som skal tælles, f.eks. specifikke brands.
+# så ved søgning grepCounter "japan racing" kunne der f.eks returneres "17.862 rows counted."
+function grepCounter() {
+        echo "grepCounter"
+}
+
+
+# Menu:
+PS3='Vælg en funktion: '
+options=("1: fileSplitter" "2: rowGrepper" "3: grepCounter?" "4: exit")
+select opt in "${options[@]}"
+do
+    case $opt in
+        "1: fileSplitter") fileSplitter ;;
+        "2: rowGrepper") rowGrepper ;;
+        "3: grepCounter?") grepCounter ;;
+        "4: exit") break ;;
+        *) echo "$REPLY er ikke tilgængeligt.." ;;
+    esac
+done
+
