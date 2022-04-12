@@ -1,0 +1,16 @@
+#!/bin/bash
+# Will grep my PC info
+# Michael Aggerholm  2022-04-11 - 12:23:06
+
+echo 'CPU Model name:'
+grep 'model name' /proc/cpuinfo | sort --unique
+
+echo $'\nRAM INFO:'
+grep 'MemTotal:' /proc/meminfo
+grep 'MemFree:' /proc/meminfo
+
+echo $'\nDisc space:'
+df -h | grep -E 'nvme0n1p2'
+
+echo $'\nNetwork ports in use:'
+sudo lsof -i -P -n | grep LISTEN
